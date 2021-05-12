@@ -86,7 +86,7 @@ export default function Page(){
             <li><div class="seat">48</div></li>
             <li><div class="seat">49</div></li>
             <li><div class="seat">50</div></li>
-            </ul>
+            </ul></div>
         <div class="legend">
             <div class="seat green"><p>Selecionado</p></div>
             <div class="seat"><p>Disponível</p></div>
@@ -111,8 +111,6 @@ export default function Page(){
         <button class="backToHome">Voltar pra Home</button>
         </div>    
         </div>
-        </div>
-        
         </>
     )
 }
