@@ -6,8 +6,6 @@ import axios from 'axios';
 import image3 from "../img/image3.png";
 export default function Home({movies, setMovies}){
 
-const {idMovie} = useParams();
-
 useEffect(()=> {
     const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`);
     request.then((resposta)=>{
