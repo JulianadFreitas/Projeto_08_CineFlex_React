@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 export default function Seat({
   infoSeat,
   isAvailable,
@@ -14,24 +13,23 @@ export default function Seat({
   function ToggleSeat(id, name) {
     selected ? excluiSeat(id, name) : addSeat(id, name);
   }
-
   function Check() {
-      if (isAvailable === false) {
-          alert ("Esse assento não está disponível");
-      }
+    if (isAvailable === false) {
+       alert ("Esse assento não está disponível");
+    }
   }
 
-  function addSeat(seat,name) {
+  function addSeat(id, name) {
     setSelected(true);
     choosed = choosedSeats.filter((item) => id !== item);
     nameSeats = nameSeats.filter((item) => name !== item);
-    const teste = [...choosed, seat];
-    const teste2 = [...nameSeats, name];
+    const teste = [...choosed, id];
+    const teste2 = [...nameSeats, ("Assento " + name)];
     setNameSeats(teste2);
     setChoosedSeats(teste);
   }
 
-  function excluiSeat(seat,name) {
+  function excluiSeat(id, name) {
     setSelected(false);
     choosed = choosedSeats.filter((item) => id !== item);
     nameSeats = nameSeats.filter((item) => name !== item);
@@ -41,9 +39,6 @@ export default function Seat({
     setChoosedSeats(teste);
   }
 
-  console.clear();
-  console.log(choosedSeats,nameSeats);
-  
   return (
     <li>
       <div

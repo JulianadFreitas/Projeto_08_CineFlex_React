@@ -70,8 +70,8 @@ img{
    margin-left: 30px;
    font-size: 21px;
    line-height: 23px;
-letter-spacing: 0.02em;
-margin-bottom:20px ;
+  letter-spacing: 0.02em;
+  margin-bottom:117 ;
  }
  .time{
   margin:20px 0px 0px ;
@@ -220,5 +220,18 @@ input {
   font-size: 22px;
   line-height: 26px;
   margin-left: 45px;
+}
+.finalInformations .ticket {
+  display: flex;
+}
+.ticket {
+  display: flex;
+  width: 140px;
+  flex-wrap: wrap;
+  height: 90px;
+  flex-direction: column;
+}
+.ticket .choosedSeat {
+margin-right: 20px;
 }
 

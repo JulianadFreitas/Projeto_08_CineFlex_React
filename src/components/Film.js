@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Stage from "./Stage";
 import Footer from "./Footer";
 
 export default function Film({ movie, setMovie }) {
@@ -26,8 +27,7 @@ export default function Film({ movie, setMovie }) {
 
   return (
     <>
-      <div class='page'>Selecione o filme</div>
-      
+      <Stage text ={"Selecione o horário"}/>
         {movie.length === 0
           ? ""
           : movie.days.map((day) => {
