@@ -1,7 +1,7 @@
 import React from "react";
 export default function Stage({text}) {
   return (
-    <div class='page'>
+    <div className='page'>
         {text}
     </div>
 

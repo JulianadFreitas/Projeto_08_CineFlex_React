@@ -9,7 +9,7 @@ export default function FinalInformations({
 }) {
   if (title === "Comprador") {
     return (
-      <div class='finalInformations'>
+      <div className='finalInformations'>
         <br />
         <h2>Comprador</h2>
         <p>Nome: {nome}</p>
@@ -18,7 +18,7 @@ export default function FinalInformations({
     );
   } else {
     return (
-      <div class='finalInformations'>
+      <div className='finalInformations'>
         <h2>Filme e sessão</h2>
         <p>
           {titleMovie} <br />{day} {time} 

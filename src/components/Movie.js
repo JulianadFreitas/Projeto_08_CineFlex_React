@@ -8,7 +8,6 @@ import Footer from "./Footer";
 export default function Movie({ movie, setMovie }) {
   const { idMovie } = useParams();
   const {title,posterURL } = movie;
-  const [movieInfo, setMovieInfo] = React.useState([]);
 
   useEffect(() => {
     const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`);
@@ -24,13 +23,13 @@ export default function Movie({ movie, setMovie }) {
   return (
     <>
       <Stage text ={"Selecione o horário"}/>
-      <div class="container">
+      <div className="container">
         <div className ="box">
         {movie.length === 0 ? "" : movie.days.map((day) => {
               return (
-                <div class='times'>
-                  <div class="date"> {day.weekday} - {day.date}</div>
-                  <div class='time'>
+                <div className='times'>
+                  <div className="date"> {day.weekday} - {day.date}</div>
+                  <div className='time'>
                     <Link to={`/Section/${idMovie}`}>
                       <button> {day.showtimes[0].name}</button>
                     </Link>

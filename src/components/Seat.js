@@ -42,7 +42,7 @@ export default function Seat({
     <li>
       <div
         onClick={() => {ToggleSeat(id, name);  Check(isAvailable);}}
-        class={`seat ${isAvailable ? "gray" : "yellow"} ${selected ? "green" : ""}`}>
+        className={`seat ${isAvailable ? "gray" : "yellow"} ${selected ? "green" : ""}`}>
         {name}
       </div>
     </li>

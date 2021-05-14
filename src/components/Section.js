@@ -31,9 +31,9 @@ export default function Section({
   return (
     <>
       <Stage text={"Selecione os assentos"} />
-      <div class='container'>
-        <div class='seats'>
-          <ul class='seats'>
+      <div className='container'>
+        <div className='seats'>
+          <ul className='seats'>
             {section.length === 0 ? "" : section.seats.map((item) => {
                   return (
                     <Seat
@@ -48,12 +48,12 @@ export default function Section({
                 })}
           </ul>
         </div>
-        <div class='legend'>
+        <div className='legend'>
           <Legend text={"Selecionado"} classe={"seat green"} />
           <Legend text={"Disponível"} classe={"seat"} />
           <Legend text={"Indisponível"} classe={"seat yellow"} />
         </div>
-        <div class='infos'>
+        <div className='infos'>
           <div>
             <h2>Nome do comprador:</h2>
             <Inputs title ={"Nome do comprador:"} type={"text"} onChange={(e) => setInputName(e.target.value)} value={inputName} placeholder='Digite seu nome...'
@@ -62,7 +62,7 @@ export default function Section({
             <Inputs title ={"CPF do comprador:"}type={"number"} onChange={(e) => setInputCPF(e.target.value)} value={inputCPF} placeholder='Digite seu CPF...'
             />
           </div>
-          <button class='reserve' onClick={SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}>
+          <button className='reserve' onClick={SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}>
             Reservar assento(s)
           </button>
         </div>

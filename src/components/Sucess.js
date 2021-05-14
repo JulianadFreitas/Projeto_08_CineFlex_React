@@ -18,23 +18,23 @@ export default function Sucess({
         setInputName("");
     }
   return (
-      <div class='container'>
-        <div class='final'>
+      <div className='container'>
+        <div className='final'>
           <h1>
             Pedido feito <br /> com sucesso!
           </h1>
           <FinalInformations title ={"Filme e sessão"} titleMovie ={movie.title} time ={sectionTime} day={movieInfo.weekday}/>
-          <div class='finalInformations'>
+          <div className='finalInformations'>
             <h2>Ingressos</h2>
-            <div class='ticket'>
+            <div className='ticket'>
               {!nameSeats? "" : nameSeats.map((seat, i) => {
-                    return <div class='choosedSeat'>{nameSeats[i]}</div>;
+                    return <div className='choosedSeat'>{nameSeats[i]}</div>;
                   })}
             </div>
           </div>
           <FinalInformations title ={"Comprador"} nome ={inputName} CPF={inputCPF}/>
           <Link to='/'>
-            <button onClick={Reset} class='backToHome'>Voltar pra Home</button>
+            <button onClick={Reset} className='backToHome'>Voltar pra Home</button>
           </Link>
         </div>
       </div>

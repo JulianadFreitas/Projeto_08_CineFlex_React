@@ -15,14 +15,14 @@ export default function Home({ movies, setMovies }) {
   return (
     <>
     <Stage text={"Selecione o filme"}/>
-      <div class='container'>
-        <ul class='ranksMovies'>
+      <div className='container'>
+        <ul className='ranksMovies'>
           {movies.map((movie) => {
             return (
               <Link to={`/Movie/${movie.id}`}>
                 <li>
-                  <div class='Movie'>
-                    <img src={movie.posterURL} />
+                  <div className='Movie'>
+                    <img src={movie.posterURL} alt={"poster of movie"}/>
                   </div>
                 </li>
               </Link>

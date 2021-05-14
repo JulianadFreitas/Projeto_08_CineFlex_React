@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import useState from "react";
 import React from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -25,11 +24,9 @@ export default function App() {
         </Route>
         <Route path='/Movie/:idMovie' exact>
           <Movie
-           movie={movie}
-            movies={movies}
+            movie={movie}
             setMovie={setMovie}
             choosedSeats={choosedSeats} setChoosedSeats={setChoosedSeats}
-            movieInfo={movieInfo} setMovieInfo={setMovieInfo}
           />
         </Route>
         <Route path='/Section/:idSection' exact>
