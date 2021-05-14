@@ -47,7 +47,7 @@ export default function Sucess({
           </div>
           <div class='finalInformations'>
             <h2>Comprador</h2>
-            <p>Nome: {inputName}</p> <br />
+            <p>Nome: {inputName}</p> 
             <p>CPF:{inputCPF} </p>
           </div>
 

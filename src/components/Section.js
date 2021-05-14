@@ -33,10 +33,10 @@ export default function Section({
   // console.log(movieInfo.weekday, movie.name);
 
 function SendOrder(){
-   if (nameSeats !== 0 && inputCPF !== null && inputCPF !== null) {
+   if (nameSeats !== 0 && inputName.length !== 0 && inputCPF.length !== 0) {
      const order = {
      ids: choosedSeats, 
-     cpf:inputCPF, 
+     cpf: inputCPF, 
      name: inputName
      };
      
@@ -49,10 +49,9 @@ function SendOrder(){
    
    function tratar() {
      alert("foi");
-     history.push("/Sucess");
+     history.push("/Sucess")
    }
 }
-// setTitleMovie(movie.title);
 
   return (
     <>

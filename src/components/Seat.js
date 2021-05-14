@@ -20,8 +20,6 @@ export default function Seat({
           alert ("Esse assento não está disponível");
       }
   }
-  
-//  console.log( isAvailable, selected);
 
   function addSeat(seat,name) {
     setSelected(true);
@@ -42,7 +40,7 @@ export default function Seat({
     setNameSeats(teste2);
     setChoosedSeats(teste);
   }
-  
+
   console.clear();
   console.log(choosedSeats,nameSeats);
   
