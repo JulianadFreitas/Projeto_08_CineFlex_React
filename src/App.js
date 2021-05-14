@@ -3,7 +3,7 @@ import useState from "react";
 import React from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Film from "./components/Film";
+import Movie from "./components/Movie";
 import Section from "./components/Section";
 import Sucess from "./components/Sucess";
 export default function App() {
@@ -23,52 +23,40 @@ export default function App() {
         <Route path='/' exact>
           <Home movies={movies} setMovies={setMovies} />
         </Route>
-        <Route path='/Film/:idMovie' exact>
-          <Film
+        <Route path='/Movie/:idMovie' exact>
+          <Movie
+           movie={movie}
             movies={movies}
-            movie={movie}
             setMovie={setMovie}
-            choosedSeats={choosedSeats}
-            setChoosedSeats={setChoosedSeats}
-            movieInfo={movieInfo}
-            setMovieInfo={setMovieInfo}
+            choosedSeats={choosedSeats} setChoosedSeats={setChoosedSeats}
+            movieInfo={movieInfo} setMovieInfo={setMovieInfo}
           />
         </Route>
         <Route path='/Section/:idSection' exact>
           <Section
-            section={section}
-            setSection={setSection}
             movie={movie}
-            choosedSeats={choosedSeats}
-            setChoosedSeats={setChoosedSeats}
-            movieInfo={movieInfo}
-            setMovieInfo={setMovieInfo}
-            setSectionTime={setSectionTime}
-            sectionTime={sectionTime}
-            nameSeats={nameSeats}
-            setNameSeats={setNameSeats}
-            inputCPF={inputCPF}
-            setInputCPF={setInputCPF}
-            inputName={inputName}
-            setInputName={setInputName}
+            section={section}setSection={setSection}
+            choosedSeats={choosedSeats} setChoosedSeats={setChoosedSeats}
+            movieInfo={movieInfo} setMovieInfo={setMovieInfo}
+            setSectionTime={setSectionTime} sectionTime={sectionTime}
+            nameSeats={nameSeats} setNameSeats={setNameSeats}
+            inputCPF={inputCPF} setInputCPF={setInputCPF}
+            inputName={inputName} setInputName={setInputName}
           />
         </Route>
         <Route path='/Sucess' exact>
           <Sucess
             movie={movie}
-            choosedSeats={choosedSeats}
+            choosedSeats={choosedSeats} setChoosedSeats={setChoosedSeats}
             movieInfo={movieInfo}
-            setSectionTime={setSectionTime}
-            sectionTime={sectionTime}
-            nameSeats={nameSeats}
-            setNameSeats={setNameSeats}
-            inputCPF={inputCPF}
-            setInputCPF={setInputCPF}
-            inputName={inputName}
-            setInputName={setInputName}
+            setSectionTime={setSectionTime} sectionTime={sectionTime}
+            nameSeats={nameSeats} setNameSeats={setNameSeats}
+            inputCPF={inputCPF} setInputCPF={setInputCPF}
+            inputName={inputName} setInputName={setInputName}
           />
         </Route>
       </Switch>
     </BrowserRouter>
   );
 }
+

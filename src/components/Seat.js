@@ -2,8 +2,7 @@ import React, { useState } from "react";
 export default function Seat({
   infoSeat,
   isAvailable,
-  choosedSeats,
-  setChoosedSeats,
+  choosedSeats, setChoosedSeats,
   nameSeats, setNameSeats
 }) {
   const { id, name } = infoSeat;
@@ -42,13 +41,8 @@ export default function Seat({
   return (
     <li>
       <div
-        onClick={() => {
-          ToggleSeat(id, name);
-          Check(isAvailable);
-        }}
-        class={`seat ${isAvailable ? "gray" : "yellow"} ${
-          selected ? "green" : ""
-        }`}>
+        onClick={() => {ToggleSeat(id, name);  Check(isAvailable);}}
+        class={`seat ${isAvailable ? "gray" : "yellow"} ${selected ? "green" : ""}`}>
         {name}
       </div>
     </li>

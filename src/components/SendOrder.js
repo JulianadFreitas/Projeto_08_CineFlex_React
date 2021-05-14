@@ -7,7 +7,7 @@ export default function SendOrder({
   inputName,
 }) {
   let history = useHistory();
-  if (nameSeats !== 0 && inputName.length !== 0 && inputCPF.length !== 0) {
+  if (nameSeats !== 0 && inputName.length !== 0 && inputCPF.length === 11) {
     const order = {
       ids: choosedSeats,
       cpf: inputCPF,
@@ -20,10 +20,10 @@ export default function SendOrder({
     );
     envio.then(tratar);
     envio.catch(() => console.log("Erro ao enviar os dados para ao servidor."));
-  }
+  } 
 
   function tratar() {
     alert("Dados enviados com Sucesso!");
     history.push("/Sucess");
   }
-}
+} 

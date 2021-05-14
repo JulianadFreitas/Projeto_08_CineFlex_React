@@ -19,9 +19,9 @@ export default function Home({ movies, setMovies }) {
         <ul class='ranksMovies'>
           {movies.map((movie) => {
             return (
-              <Link to={`/Film/${movie.id}`}>
+              <Link to={`/Movie/${movie.id}`}>
                 <li>
-                  <div class='film'>
+                  <div class='Movie'>
                     <img src={movie.posterURL} />
                   </div>
                 </li>

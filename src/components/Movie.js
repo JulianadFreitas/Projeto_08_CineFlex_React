@@ -5,21 +5,17 @@ import axios from "axios";
 import Stage from "./Stage";
 import Footer from "./Footer";
 
-export default function Film({ movie, setMovie }) {
+export default function Movie({ movie, setMovie }) {
   const { idMovie } = useParams();
-
+  const {title,posterURL } = movie;
   const [movieInfo, setMovieInfo] = React.useState([]);
 
   useEffect(() => {
-    const request = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`
-    );
+    const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`);
     request.then((resposta) => {
       setMovie(resposta.data);
     });
   }, []);
-
-  const { id, title, overview, releaseDate, posterURL } = movie;
 
   if (!movie.days) {
     return <div></div>;
@@ -28,12 +24,12 @@ export default function Film({ movie, setMovie }) {
   return (
     <>
       <Stage text ={"Selecione o horário"}/>
-        {movie.length === 0
-          ? ""
-          : movie.days.map((day) => {
+      <div class="container">
+        <div className ="box">
+        {movie.length === 0 ? "" : movie.days.map((day) => {
               return (
                 <div class='times'>
-                  {day.weekday} - {day.date}
+                  <div class="date"> {day.weekday} - {day.date}</div>
                   <div class='time'>
                     <Link to={`/Section/${idMovie}`}>
                       <button> {day.showtimes[0].name}</button>
@@ -44,8 +40,8 @@ export default function Film({ movie, setMovie }) {
                   </div>
                 </div>
               );
-            })}{" "}
-      
+            })}
+       </div></div>
       <Footer title={title} src={posterURL} />
     </>
   );

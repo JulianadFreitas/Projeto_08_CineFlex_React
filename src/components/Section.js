@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Stage from "./Stage";
 import Legend from "./Legend";
 import SendOrder from "./SendOrder";
+import Inputs from "./Inputs";
 export default function Section({
   movie,
   movieInfo, setMovieInfo,
@@ -55,26 +56,18 @@ export default function Section({
         <div class='infos'>
           <div>
             <h2>Nome do comprador:</h2>
-            <input
-              type='text'
-              onChange={(e) => setInputName(e.target.value)}
-              value={inputName}
-              placeholder='Digite seu nome...'></input>
+            <Inputs title ={"Nome do comprador:"} type={"text"} onChange={(e) => setInputName(e.target.value)} value={inputName} placeholder='Digite seu nome...'
+            />
             <h2>CPF do comprador:</h2>
-            <input
-              type='number'
-              onChange={(e) => setInputCPF(e.target.value)}
-              value={inputCPF}
-              placeholder='Digite seu CPF...'></input>
+            <Inputs title ={"CPF do comprador:"}type={"number"} onChange={(e) => setInputCPF(e.target.value)} value={inputCPF} placeholder='Digite seu CPF...'
+            />
           </div>
-          <button class='reserve' onClick={SendOrder({choosedSeats, nameSeats, inputCPF, inputName})}>
+          <button class='reserve' onClick={SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}>
             Reservar assento(s)
           </button>
         </div>
       </div>
-      {movieInfo.length === 0 ? ("") : ( 
-      <Footer src={movie.posterURL} title={movie.title} sectionDate={movieInfo.weekday} sectionTime={sectionTime}
-      />
+      {movieInfo.length === 0 ? ("") : ( <Footer src={movie.posterURL} title={movie.title} sectionDate={movieInfo.weekday} sectionTime={sectionTime}/>
       )}
     </>
   );
