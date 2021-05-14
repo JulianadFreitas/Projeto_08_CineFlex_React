@@ -8,22 +8,31 @@ import Film from "./components/Film";
 import Section from "./components/Section";
 import Sucess from "./components/Sucess";
 export default function App() {
-
-   const [movies, setMovies] = React.useState([]);
-   const [clickedMovie, setClickedMovie] = React.useState([]);
    
+   const [movies, setMovies] = React.useState([]);
+   const [movie, setMovie] = React.useState({});
+   const [choosedSeats, setChoosedSeats] = React.useState([]);
+   const [movieInfo, setMovieInfo] = React.useState([]);
+   const [sectionTime, setSectionTime] = React.useState([]);
   return (
     <BrowserRouter>
         <Header/>
       <Switch>
             <Route path="/" exact>
-               <Home movies={movies} setMovies={setMovies} clickedMovie={clickedMovie} setClickedMovie={setClickedMovie}/>
+               <Home movies={movies} setMovies={setMovies} />
             </Route>
             <Route path="/Film/:idMovie" exact>
-               <Film movies={movies} clickedMovie={clickedMovie}/>
+               <Film movies={movies} movie ={movie} setMovie={setMovie} choosedSeats={choosedSeats} setChoosedSeats={setChoosedSeats}
+               movieInfo={movieInfo}
+               setMovieInfo={setMovieInfo}/>
             </Route>
-            <Route path="/Section" exact>
-               <Section/>
+            <Route path="/Section/:idSection" exact>
+               <Section  movie ={movie} 
+               choosedSeats={choosedSeats} 
+               setChoosedSeats={setChoosedSeats} 
+               movieInfo={movieInfo}
+               setMovieInfo={setMovieInfo}
+               setSectionTime ={setSectionTime} sectionTime={sectionTime}/>
             </Route>
             <Route path="/Sucess" exact>
                <Sucess/>
