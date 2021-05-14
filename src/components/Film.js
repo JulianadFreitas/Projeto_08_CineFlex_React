@@ -4,7 +4,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "./Footer";
 
-export default function Film({movie, setMovie}) {
+export default function Film({movie,
+   setMovie,
+   titleMovie,
+   setTitleMovie}) {
 
   const { idMovie } = useParams();
   
@@ -15,9 +18,9 @@ export default function Film({movie, setMovie}) {
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`
     );
     request.then((resposta) => {
-      console.clear();
-      console.log(resposta.data);
+    
       setMovie(resposta.data);
+      
     });
   }, []);
  
@@ -26,7 +29,7 @@ export default function Film({movie, setMovie}) {
   if (!movie.days) {
     return <div></div>;
   }
- console.log(movie);
+ 
   return (
     <>
       <div class='page'>Selecione o filme</div>

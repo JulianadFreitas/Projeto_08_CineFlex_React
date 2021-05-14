@@ -10,9 +10,7 @@ useEffect(()=> {
     const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies`);
     request.then((resposta)=>{
     setMovies(resposta.data)
-    console.log(request);
-    console.log(resposta);
-    console.log(movies);
+   
     })
 }, [])
 

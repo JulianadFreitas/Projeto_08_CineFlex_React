@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Seat from "./Seat";
 import Footer from "./Footer";
@@ -11,7 +11,11 @@ export default function Section({
   setSectionTime,
   choosedSeats,
   setChoosedSeats,
+  titleMovie,
+  setTitleMovie,
+  nameSeats, setNameSeats, inputCPF, setInputCPF, inputName, setInputName
 }) {
+  let history = useHistory();
   const [section, setSection] = React.useState([]);
   const { idSection } = useParams();
   useEffect(() => {
@@ -19,15 +23,37 @@ export default function Section({
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSection}/seats`
     );
     request.then((resposta) => {
-      console.clear();
-      console.log(resposta.data);
       setSection(resposta.data);
-      setMovieInfo(resposta.data.day);
+      setMovieInfo(resposta.data.day); //dia da 
       setSectionTime(resposta.data.name);
-      console.log(section, resposta.data.day, movie, sectionTime);
+      // console.log(section, resposta.data.day, movie, sectionTime);
     });
   }, []);
-  console.log(movieInfo.weekday, movie.name);
+
+  // console.log(movieInfo.weekday, movie.name);
+
+function SendOrder(){
+   if (nameSeats !== 0 && inputCPF !== null && inputCPF !== null) {
+     const order = {
+     ids: choosedSeats, 
+     cpf:inputCPF, 
+     name: inputName
+     };
+     
+     const envio = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many", order);
+     envio.then(
+      tratar
+     );
+     envio.catch(()=> console.log("erro"));
+   }
+   
+   function tratar() {
+     alert("foi");
+     history.push("/Sucess");
+   }
+}
+// setTitleMovie(movie.title);
+
   return (
     <>
       <div class='page'>Selecione os assentos</div>
@@ -37,8 +63,7 @@ export default function Section({
             {section.length === 0
               ? ""
               : section.seats.map((item) => {
-                  console.clear();
-                  console.log(item, item.isAvailable);
+                
                   return (
                     <Seat
                       infoMovie={movieInfo}
@@ -47,7 +72,10 @@ export default function Section({
                       choosedSeats={choosedSeats}
                       setChoosedSeats={setChoosedSeats}
                       sectionDate={movieInfo.weekday}
-                      sectionTime={sectionTime}
+                      sectionTime={movie.title}
+                      titleMovie={movie.title}
+                      nameSeats={nameSeats}
+                      setNameSeats ={setNameSeats}
                     />
                   );
                 })}
@@ -67,13 +95,23 @@ export default function Section({
         <div class='infos'>
           <div>
             <h2>Nome do comprador:</h2>
-            <input placeholder='Digite seu nome...'></input>
+            <input 
+               type="text"
+               onChange={(e) => setInputName(e.target.value)}
+               value={inputName}
+               placeholder='Digite seu nome...'>
+            </input>
             <h2>CPF do comprador:</h2>
-            <input placeholder='Digite seu CPF...'></input>
+            <input
+               type="number"
+               onChange={(e) => setInputCPF(e.target.value)}
+               value={inputCPF}
+               placeholder='Digite seu CPF...'>
+            </input>
           </div>
-          <Link to='/Sucess'>
-            <button class='reserve'>Reservar assento(s)</button>
-          </Link>
+          
+            <button class='reserve' onClick={SendOrder}>Reservar assento(s)</button>
+          
         </div>
       </div>
       {movieInfo.length === 0 ? (

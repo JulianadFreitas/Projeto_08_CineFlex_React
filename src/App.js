@@ -12,8 +12,13 @@ export default function App() {
    const [movies, setMovies] = React.useState([]);
    const [movie, setMovie] = React.useState({});
    const [choosedSeats, setChoosedSeats] = React.useState([]);
-   const [movieInfo, setMovieInfo] = React.useState([]);
+   const [nameSeats, setNameSeats] = React.useState([]);
+   const [movieInfo, setMovieInfo] = React.useState([]); //sesão
    const [sectionTime, setSectionTime] = React.useState([]);
+   const [titleMovie, setTitleMovie] = React.useState([]);
+   const [section, setSection] = React.useState([]);
+   const [inputCPF, setInputCPF] = React.useState("");
+   const [inputName, setInputName] = React.useState("");
   return (
     <BrowserRouter>
         <Header/>
@@ -27,15 +32,30 @@ export default function App() {
                setMovieInfo={setMovieInfo}/>
             </Route>
             <Route path="/Section/:idSection" exact>
-               <Section  movie ={movie} 
+               <Section  section ={section} setSection={setSection} movie ={movie} 
                choosedSeats={choosedSeats} 
                setChoosedSeats={setChoosedSeats} 
                movieInfo={movieInfo}
                setMovieInfo={setMovieInfo}
-               setSectionTime ={setSectionTime} sectionTime={sectionTime}/>
+               setSectionTime ={setSectionTime} sectionTime={sectionTime}
+               titleMovie= {titleMovie} setTitleMovie={setTitleMovie}
+               nameSeats={nameSeats} setNameSeats={setNameSeats}
+               inputCPF={inputCPF} setInputCPF={setInputCPF}
+               inputName ={inputName} setInputName={setInputName}/>
             </Route>
             <Route path="/Sucess" exact>
-               <Sucess/>
+               <Sucess  movie ={movie} 
+               choosedSeats={choosedSeats} 
+               setChoosedSeats={setChoosedSeats} 
+               movieInfo={movieInfo}
+               setMovieInfo={setMovieInfo}
+               setSectionTime ={setSectionTime} sectionTime={sectionTime}
+               titleMovie= {titleMovie} setTitleMovie={setTitleMovie}
+               section ={section} setSection={setSection}
+               nameSeats={nameSeats} setNameSeats={setNameSeats}
+               inputCPF={inputCPF} setInputCPF={setInputCPF}
+               inputName ={inputName} setInputName={setInputName}
+               />
             </Route>
      </Switch>
     </BrowserRouter>   
