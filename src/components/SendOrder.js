@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 export default function SendOrder({
   choosedSeats,
@@ -6,8 +6,8 @@ export default function SendOrder({
   inputCPF,
   inputName,
 }) {
-  let history = useHistory();
-  if (nameSeats !== 0 && inputName.length !== 0 && inputCPF.length === 11) {
+ 
+  if (nameSeats.length !== 0 && inputName.length !== 0 && inputCPF.length === 11) {
     const order = {
       ids: choosedSeats,
       cpf: inputCPF,
@@ -23,7 +23,6 @@ export default function SendOrder({
   } 
 
   function tratar() {
-    alert("Dados enviados com Sucesso!");
-    history.push("/Sucess");
+    alert("Dados enviados com Sucesso!")
   }
 } 

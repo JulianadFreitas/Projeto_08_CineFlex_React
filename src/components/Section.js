@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Seat from "./Seat";
 import Footer from "./Footer";
@@ -63,9 +63,11 @@ export default function Section({
             <Inputs title ={"CPF do comprador:"}type={"number"} onChange={(e) => setInputCPF(e.target.value)} value={inputCPF} placeholder='Digite seu CPF...'
             />
           </div>
-          <button className='reserve' onClick={SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}>
-            Reservar assento(s)
-          </button>
+          <Link to = {`${(nameSeats.length !== 0 && inputName.length !== 0 && inputCPF.length === 11) ? "/Sucess" : ""}`}>
+            <button className='reserve' onClick={()=> {SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}}>
+             Reservar assento(s)
+             </button>
+          </Link>
         </div>
       </div>
       {movieInfo.length === 0 ? ("") : ( <Footer src={movie.posterURL} title={movie.title} sectionDate={movieInfo.weekday} sectionTime={sectionTime}/>
