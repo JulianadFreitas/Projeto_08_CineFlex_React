@@ -37,6 +37,7 @@ export default function Section({
             {section.length === 0 ? "" : section.seats.map((item) => {
                   return (
                     <Seat
+                      key= {item.id}
                       infoMovie={movieInfo}
                       infoSeat={item}
                       isAvailable={item.isAvailable}

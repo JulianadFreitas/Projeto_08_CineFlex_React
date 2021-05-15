@@ -27,7 +27,7 @@ export default function Movie({ movie, setMovie }) {
         <div className ="box">
         {movie.length === 0 ? "" : movie.days.map((day) => {
               return (
-                <div className='times'>
+                <div key={movie.id} className='times'>
                   <div className="date"> {day.weekday} - {day.date}</div>
                   <div className='time'>
                     <Link to={`/Section/${idMovie}`}>
