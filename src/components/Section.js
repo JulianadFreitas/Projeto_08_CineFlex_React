@@ -66,7 +66,7 @@ export default function Section({
           <Link to = {`${(nameSeats.length !== 0 && inputName.length !== 0 && inputCPF.length === 11) ? "/Sucess" : ""}`}>
             <button className='reserve' onClick={()=> {SendOrder({ choosedSeats, nameSeats, inputCPF, inputName})}}>
              Reservar assento(s)
-             </button>
+            </button>
           </Link>
         </div>
       </div>
